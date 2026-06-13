@@ -50,7 +50,6 @@ function filterDateArray(roughArray, makeDate = makeDateRu) {
     .map(arr => {
         const [notation, ...rest] = arr;
         let day,month,year;
-        console.log(`notation: ${notation}`)
         switch(notation){
             case 'ru':
                 [day,month,year]=rest;
@@ -71,8 +70,8 @@ function filterDateArray(roughArray, makeDate = makeDateRu) {
 
 const arrayRough = [
     '10-02-2022',
-    '12/11/2025',
     'test',
+    '11/12/2023',
     '41/2/2002',
     '32-05-2002',
     '01-13-2009',
