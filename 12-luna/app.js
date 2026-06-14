@@ -1,19 +1,22 @@
 function checkCard(card) {
     let parsed = card.trim().replaceAll('-','');
-    if (Number(parsed).isNaN
+    if (isNaN(Number(parsed))
     || parsed.length !== 16)
         return false;
-    
+
     // luna
     parsed = parsed.split('').map(char => Number(char));
-    for (let i=0; i<parsed.length; i+=2) {
-        updated = parsed[i] * 2
-        if (updated > 9) {
-            updated -= 9
-        }
-        parsed[i] = updated
+    let sum = 0;
+    for (let i=0; i<parsed.length; i+=1) {
+        updated = parsed[i];
+        if (i % 2 === 1) {
+            updated = parsed[i] * 2
+            if (updated > 9) {
+                updated -= 9
+            }
+        } 
+        sum += updated
     }
-    const sum = parsed.reduce((acc,curr) => acc += curr, 0);
     return sum % 10 == 0;
 }
 
